@@ -279,3 +279,20 @@ add_node_hidden = function(sigma_obj, hidden_attr) {
   update_sigma_json(sigma_obj, nodes, json_obj$edges, json_obj$directed)
 }
 
+#' Add a listener
+#'
+#' Add a listener to report data from a 'sgraph' object in 'Shiny' back to the
+#' R session.
+#'
+#' @param sigma_obj Sgraph object, created using the sigma_from_igraph function
+#' @param listener  Either "clickNode" to listen to node clicks or "hoverNode"
+#'                  to listen to node hover
+#'
+#' @return Sgraph object with listener
+#'
+#' @export
+add_listener <- function(sigma_obj, listener){
+  sigma_obj$x$options$sigmaEvents <- listener
+  sigma_obj
+}
+

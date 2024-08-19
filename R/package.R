@@ -10,7 +10,7 @@
 #' @importFrom magrittr %>% %<>% %$%
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom stringi stri_replace_all_fixed
-#' @importFrom stats setNames
+#' @importFrom stats setNames lm
 #' @importFrom utils combn head tail
 NULL
 

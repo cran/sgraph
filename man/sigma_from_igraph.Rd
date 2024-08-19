@@ -8,8 +8,8 @@ sigma_from_igraph(
   igraph,
   layout = NULL,
   label_color = "#fff",
-  width = NULL,
-  height = NULL,
+  width = "100\%",
+  height = "400px",
   elementId = NULL,
   label_grid_cell_size = 200
 )

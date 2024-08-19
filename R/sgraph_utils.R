@@ -135,24 +135,20 @@ convert_to_spring_weights = function(df_links, selected_nodes = NULL) {
   df_links %>% rbind(df_links_targets)
 }
 
-#' Scale weights
-#'
-#' Use non-centered scaling, multiplied by a constant, and set a lower bound
-#' constant.
-#'
-#' @param weights           Either nodes or links weights vector
-#' @param upper_bound_mult  Constant to multiply weights by after scaling.
-#'                          Use to set an upper bound for weights.
-#' @param lower_bound_const Constant to set a lower bound for weights.
-#'                          All weights below will be set to lower bound.
-#'
-#' @return Weights vector
-#' @export
-scale_graph = function(weights,
-  upper_bound_mult = if (length(weights) > 1e3) 2 else 4,
-  lower_bound_const = if (length(weights) > 1e3) 2 else 3) {
 
-  wts = scale(weights, center = FALSE)
-  wts = wts * upper_bound_mult
-  ifelse(wts < lower_bound_const, lower_bound_const, wts)
+
+#' Graph list object to igraph object
+#'
+#' Build an igraph object from a graph list object (list of nodes and links
+#' data frames)
+#'
+#' @param l_graph graph list object: list of nodes and links data frames
+#'
+#' @return igraph object
+#'
+#' @export
+l_graph_to_igraph = function(l_graph) {
+
+  igraph = igraph::graph_from_data_frame(l_graph$df_links)
+  igraph %<>% add_igraph_info(l_graph$df_nodes)
 }

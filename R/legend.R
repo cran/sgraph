@@ -1,4 +1,12 @@
 
+#' Get the legend for a sgraph network
+#'
+#' @param colors_map Color mapping to use, typically built by `get_color_map`
+#' @param clusters  Group names
+#'
+#' @return Ggplot object
+#'
+#' @export
 get_legend = function(colors_map, clusters) {
 
   colors_map %<>% subset(group %in% clusters)
@@ -23,6 +31,14 @@ interpolate_palette = function(n_unique, palette) {
   grDevices::colorRampPalette(palette)(n_unique)
 }
 
+#' Build a color map
+#'
+#' @param colors Groups that will be assigned to colors
+#' @param palette Palette to use, typically a RColorBrewer palette
+#'
+#' @return Data frame mapping group names to colors
+#'
+#' @export
 get_color_map = function(colors,
   palette = RColorBrewer::brewer.pal(8, 'Dark2')) {
 

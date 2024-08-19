@@ -1,9 +1,24 @@
                                                                             
+
+                                                                               
+#' Kgraph fit to graph list object
+#'
+#' Example function to build a graph list object (list of nodes and links data
+#' frames) from a kgraph object (embeddings with cosine similarity cut-off
+#' based on random null concept pairs and known related concept pairs)
+#'
+#' @param l_fit_embeds kgraph object: embeddings with cosine similarity cut-off
+#'                     based on random null concept pairs and known related
+#'                     concept pairs
+#'
+#' @return graph list object: list of nodes and links data frames
+#'
+#' @export
 kgraph_to_lgraph = function(l_fit_embeds) {                                     
                                                                                 
   df_projs = l_fit_embeds$df_projs                                              
                                                                                 
-  df_projs %<>% order_dataframe(relevant_pattern = 'suicid')                    
+  df_projs %<>% order_dataframe_sgraph(relevant_pattern = 'suicid')                    
                                                                                 
   df_nodes = data.frame(name = unique(unlist(df_projs[1:2])))                   
   # color by CUIs                                                               
@@ -15,7 +30,7 @@ kgraph_to_lgraph = function(l_fit_embeds) {
                                                                                 
 
 
-order_dataframe = function(df_x, cols = 1:2, relevant_pattern = NULL) {
+order_dataframe_sgraph = function(df_x, cols = 1:2, relevant_pattern = NULL) {
 
   # put strings matching relevant patterns in first column
   if (!is.null(relevant_pattern)) {
@@ -29,7 +44,7 @@ order_dataframe = function(df_x, cols = 1:2, relevant_pattern = NULL) {
 
     df_x[cols] %<>% lapply(function(lvls) factor(lvls, uniq_lvls) %>%
                            as.numeric)
-    df_x %<>% order_dataframe
+    df_x %<>% order_dataframe_sgraph
     df_x[cols] %<>% lapply(function(lvls) uniq_lvls[lvls])
 
   } else {
@@ -39,3 +54,4 @@ order_dataframe = function(df_x, cols = 1:2, relevant_pattern = NULL) {
 
   df_x
 }
+

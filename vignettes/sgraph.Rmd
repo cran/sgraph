@@ -1,10 +1,10 @@
 ---
-title: "Sgraph Network Visualization"
+title: "Graph Visualizations Using Sigma.js"
 author: "Thomas Charlon"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Sgraph Network Visualization}
+  %\VignetteIndexEntry{Graph Visualizations Using Sigma.js}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Sgraph enables to visualize networks using the latest stable version of Sigma.js v2.4.0. Graphs are created using the igraph package.
+Sgraph enables to visualize graphs using the latest stable version of Sigma.js v2.4.0. Graphs are created using the igraph package.
 
 ## Visualization overview
 

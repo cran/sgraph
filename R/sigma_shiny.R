@@ -52,8 +52,8 @@ renderSgraph <- function(expr, env = parent.frame(), quoted = FALSE) {
 #' sig
 #' @export
 sigma_from_igraph <- function(igraph, layout = NULL, label_color = '#fff',
-                              width = NULL, height = NULL, elementId = NULL,
-                              label_grid_cell_size = 200) {
+                              width = "100%", height = "400px",
+                              elementId = NULL, label_grid_cell_size = 200) {
 
   directed_flag <- igraph::is_directed(igraph)
   graph_parse <- igraph::as_data_frame(igraph, what = 'both')

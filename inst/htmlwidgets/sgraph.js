@@ -215,12 +215,12 @@ HTMLWidgets.widget({
             if (x.options.sigmaEvents) {
               if (x.options.sigmaEvents == 'clickNode') {
                 s.on("clickNode", function(d) {
-                  Shiny.onInputChange('nodeData', d.data.node)
+                  Shiny.onInputChange('current_node_id', d.node)
                 })
               }
               if (x.options.sigmaEvents == 'hoverNode') {
                 s.on("overNode", function(d) {
-                  Shiny.onInputChange('nodeData', d.data.node)
+                  Shiny.onInputChange('current_node_id', d.node)
                 })
               }
             }
